@@ -35,7 +35,6 @@ export const appRouter = router({
     return { success: true };
   }),
   getUserFiles: privateProcedure.query(async ({ ctx }) => {
-    console.log("db", db);
     const { userId } = ctx;
     return await db.file.findMany({
       where: {

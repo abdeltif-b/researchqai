@@ -25,8 +25,8 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
     onSuccess: (file) => {
       router.push(`/dashboard/${file.id}`);
     },
-    // retry: true,
-    // retryDelay: 500,
+    retry: true,
+    retryDelay: 500,
   });
 
   const startSimulatedProgress = () => {
@@ -55,7 +55,6 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
         // handle file uploading
         const res = await startUpload(acceptedFile);
-
         if (!res) {
           return toast({
             title: "Something went wrong",
@@ -108,11 +107,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
               {isUploading ? (
                 <div className="w-full mt-4 max-w-xs mx-auto">
-                  <Progress
-                    indicatorColor={uploadProgress === 100 ? "bg-green-500" : ""}
-                    value={uploadProgress}
-                    className="h-1 w-full bg-zinc-200"
-                  />
+                  <Progress value={uploadProgress} className="h-1 w-full bg-zinc-200" />
                   {uploadProgress === 100 ? (
                     <div className="flex gap-1 items-center justify-center text-sm text-zinc-700 text-center pt-2">
                       <Loader2 className="h-3 w-3 animate-spin" />

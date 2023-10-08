@@ -1,6 +1,7 @@
 "use client";
 
 import { trpc } from "@/app/_trpc/client";
+import UploadButton from "./UploadButton";
 import { Ghost, Loader2, MessageSquare, Plus, Trash } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
@@ -18,24 +19,26 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
   const utils = trpc.useContext();
 
-  const { data: files, isLoading } = {
-    data: [
-      {
-        id: "1",
-        name: "name",
-        createdAt: "2023-01-01",
-        updatedAt: "2023-01-01",
-      },
-    ],
-    isLoading: false,
-  };
+  const { data: files, isLoading } = trpc.getUserFiles.useQuery();
+
+  const { mutate: deleteFile } = trpc.deleteFile.useMutation({
+    onSuccess: () => {
+      utils.getUserFiles.invalidate();
+    },
+    onMutate({ id }) {
+      setCurrentlyDeletingFile(id);
+    },
+    onSettled() {
+      setCurrentlyDeletingFile(null);
+    },
+  });
 
   return (
     <main className="mx-auto max-w-7xl md:p-10">
       <div className="mt-8 flex flex-col items-start justify-between gap-4 border-b border-gray-200 pb-5 sm:flex-row sm:items-center sm:gap-0">
         <h1 className="mb-3 font-bold text-5xl text-gray-900">My Files</h1>
 
-        {/* <UploadButton isSubscribed={subscriptionPlan.isSubscribed} /> */}
+        <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
       </div>
 
       {/* display all user files */}
@@ -71,7 +74,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
                   </div>
 
                   <Button
-                    onClick={() => console.log({ id: file.id })}
+                    onClick={() => deleteFile({ id: file.id })}
                     size="sm"
                     className="w-full"
                     variant="destructive"
@@ -92,7 +95,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         <div className="mt-16 flex flex-col items-center gap-2">
           <Ghost className="h-8 w-8 text-zinc-800" />
           <h3 className="font-semibold text-xl">Pretty empty around here</h3>
-          <p>Let&apos;s upload your first PDF.</p>
+          <p>Let&apos;s upload your first research paper.</p>
         </div>
       )}
     </main>

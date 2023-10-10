@@ -5,19 +5,14 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import MobileNav from "@/components/MobileNav";
 import { buttonVariants } from "@/components/ui/button";
 import UserAccountNav from "@/components/UserAccountNav";
+import { Logo } from "@/components/Logo";
 
-const Logo = () => (
-  <Link href="/" className="flex z-40 text-2xl font-bold">
-    <span>research</span>
-    <span className="text-blue-600">QAI/&gt;</span>
-  </Link>
-);
 const Navbar = () => {
   const { getUser } = getKindeServerSession();
   const user = getUser();
 
   return (
-    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
+    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/25 backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
           <Logo />

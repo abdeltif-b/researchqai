@@ -109,9 +109,6 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           >
             <ChevronUp className="h-4 w-4" />
           </Button>
-        </div>
-
-        <div className="space-x-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="gap-1.5" aria-label="zoom" variant="ghost">
@@ -131,7 +128,9 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           <Button onClick={() => setRotation((prev) => prev + 90)} variant="ghost" aria-label="rotate 90 degrees">
             <RotateCw className="h-4 w-4" />
           </Button>
+        </div>
 
+        <div className="space-x-2">
           <PdfFullscreen fileUrl={url} />
         </div>
       </div>

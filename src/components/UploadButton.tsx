@@ -12,7 +12,7 @@ import { useToast } from "./ui/use-toast";
 import { trpc } from "@/app/_trpc/client";
 import { useRouter } from "next/navigation";
 
-const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
+export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const router = useRouter();
 
   const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -26,7 +26,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
       router.push(`/dashboard/${file.id}`);
     },
     retry: true,
-    retryDelay: 500,
+    retryDelay: 1000,
   });
 
   const startSimulatedProgress = () => {
@@ -82,7 +82,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
       }}
     >
       {({ getRootProps, getInputProps, acceptedFiles }) => (
-        <div {...getRootProps()} className="border h-64 m-4 border-dashed border-gray-300 rounded-lg">
+        <div {...getRootProps()} className="border h-48 my-4 border-dashed border-gray-300 rounded-lg">
           <div className="flex items-center justify-center h-full w-full">
             <label
               htmlFor="dropzone-file"
@@ -91,9 +91,9 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
                 <Cloud className="h-6 w-6 text-zinc-500 mb-2" />
                 <p className="mb-2 text-sm text-zinc-700">
-                  <span className="font-semibold">Click to upload</span> or drag and drop
+                  <span className="font-semibold">Click to upload</span> or drag and drop a new PDF file
                 </p>
-                <p className="text-xs text-zinc-500">PDF (up to {isSubscribed ? "16" : "4"}MB)</p>
+                <p className="text-xs text-zinc-500">(up to {isSubscribed ? "16" : "4"}MB)</p>
               </div>
 
               {acceptedFiles && acceptedFiles[0] ? (

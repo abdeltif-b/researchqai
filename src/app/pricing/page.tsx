@@ -16,10 +16,10 @@ const Page = () => {
     {
       plan: "Free",
       tagline: "For small side projects.",
-      quota: 5,
+      quota: 3,
       features: [
         {
-          text: "5 pages per PDF",
+          text: "3 pages per PDF",
           footnote: "The maximum amount of pages per PDF-file.",
         },
         {
@@ -69,9 +69,9 @@ const Page = () => {
 
   return (
     <>
-      <MaxWidthWrapper className="mb-8 mt-24 text-center max-w-5xl">
+      <MaxWidthWrapper className="mb-8 mt-20 text-center max-w-5xl">
         <div className="mx-auto mb-10 sm:max-w-lg">
-          <h1 className="text-6xl font-bold sm:text-7xl">Pricing</h1>
+          <h1 className="text-3xl font-bold">Pricing</h1>
           <p className="mt-5 text-gray-600 sm:text-lg">
             Whether you&apos;re just trying out our service or need more, we&apos;ve got you covered.
           </p>

@@ -2,8 +2,8 @@ export const PLANS = [
   {
     name: "Free",
     slug: "free",
-    quota: 5,
-    pagesPerPdf: 5,
+    quota: 3,
+    pagesPerPdf: 3,
     price: {
       amount: 0,
       priceIds: {
@@ -20,7 +20,7 @@ export const PLANS = [
     price: {
       amount: 19,
       priceIds: {
-        test: "price_1NuEwTA19umTXGu8MeS3hN8L",
+        test: "price_1NzILnI6kkMOwtQrdIeNo9rn",
         production: "",
       },
     },

@@ -66,9 +66,10 @@ export default function Home() {
                     <Image
                       src="/img/screenshot_1.png"
                       alt="screenshot_1"
-                      width={1904}
-                      height={934}
+                      width={1904 / 2}
+                      height={934 / 2}
                       quality={100}
+                      priority={false}
                       className="rounded-md bg-white shadow-2xl ring-1 ring-gray-900/10"
                     />
                   </div>
@@ -120,6 +121,7 @@ export default function Home() {
                   width={1919}
                   height={935}
                   quality={100}
+                  priority={false}
                   className="rounded-md bg-white shadow-2xl ring-1 ring-gray-900/10"
                 />
               </div>

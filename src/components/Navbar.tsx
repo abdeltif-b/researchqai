@@ -15,10 +15,10 @@ const Navbar = () => {
     <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/25 backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
-          <Logo />
-
+          <div className="flex">
+            <Logo /> <span className="text-sm font-bold ml-2">[alpha]</span>
+          </div>
           <MobileNav isAuth={!!user} />
-
           <div className="hidden items-center space-x-4 sm:flex">
             {!user ? (
               <>

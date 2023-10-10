@@ -1,4 +1,4 @@
-import { Send } from "lucide-react";
+import { Check, CheckCircle, Plus, Send } from "lucide-react";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { useContext, useRef } from "react";
@@ -49,7 +49,7 @@ const ChatInput = ({ isDisabled }: ChatInputProps) => {
                   textareaRef.current?.focus();
                 }}
               >
-                <Send className="h-4 w-4" />
+                <Check className="h-4 w-4" />
               </Button>
             </div>
           </div>

@@ -6,7 +6,7 @@ ResearchQAI is an application that empowers users to engage in interactive discu
 
 ## Technologies Used
 
-ResearchQAI is built using a powerful stack of technologies, ensuring robust functionality and a seamless user experience:
+ResearchQAI is built using:
 
 - **Next.js:** A React framework for building web applications, this project uses App Routes structure.
 - **React:** A JavaScript library for creating user interfaces.

@@ -2,7 +2,7 @@
 ![researchqai-screenshot](/public/img/researchqai-screenshot.png)
 
 ## About
-ResearchQAI is an application that empowers users to engage in interactive discussions with research paper PDFs. It offers the capability to ask questions, receive answers, and extract valuable insights from research documents.
+ResearchQAI is a SaaS application that empowers users to engage in interactive discussions with research paper PDFs. It offers the capability to ask questions, receive answers, and extract valuable insights from research documents.
 
 ## Technologies Used
 

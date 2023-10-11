@@ -13,7 +13,7 @@ ResearchQAI is built using:
 - **TypeScript:** A statically-typed superset of JavaScript.
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 - **Shadcn:** A UI component library.
-- **Kind:** An authentication library for secure user management.
+- **Kinde:** An authentication library for secure user management.
 - **Prisma:** A database toolkit for TypeScript and Node.js, offering ORM and migration capabilities.
 - **PostgreSQL:** An open-source relational database.
 - **Stripe:** A payment processing platform for handling subscriptions.

@@ -15,7 +15,7 @@ export function absoluteUrl(path: string) {
 export function constructMetadata({
   title = "researchQAI - the SaaS for PhD students",
   description = "researchQAI is an open-source software to make chatting to research papers easy.",
-  image = "/thumbnail.png",
+  image = "/researchqai-screenshot.png",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
@@ -38,7 +38,7 @@ export function constructMetadata({
       ],
     },
     icons,
-    metadataBase: new URL("https://researchqai.vercel.app"),
+    metadataBase: new URL("https://www.researchqai.com"),
     themeColor: "#FFF",
     ...(noIndex && {
       robots: {

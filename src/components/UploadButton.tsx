@@ -40,13 +40,14 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
         }
         return prevProgress + 5;
       });
-    }, 500);
+    }, 1000);
 
     return interval;
   };
 
   return (
     <Dropzone
+      accept={".pdf"}
       multiple={false}
       onDrop={async (acceptedFile) => {
         setIsUploading(true);
@@ -56,6 +57,7 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
         // handle file uploading
         const res = await startUpload(acceptedFile);
         if (!res) {
+          setIsUploading(false);
           return toast({
             title: "Something went wrong",
             description: "Please try again later",
@@ -68,13 +70,13 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
         const key = fileResponse?.key;
 
         if (!key) {
+          setIsUploading(false);
           return toast({
             title: "Something went wrong",
             description: "Please try again later",
             variant: "destructive",
           });
         }
-
         clearInterval(progressInterval);
         setUploadProgress(100);
 
@@ -82,7 +84,7 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
       }}
     >
       {({ getRootProps, getInputProps, acceptedFiles }) => (
-        <div {...getRootProps()} className="border h-48 my-4 border-dashed border-gray-300 rounded-lg">
+        <div {...getRootProps()} className="border h-52 my-4 border-dashed border-gray-300 rounded-lg">
           <div className="flex items-center justify-center h-full w-full">
             <label
               htmlFor="dropzone-file"
@@ -117,7 +119,7 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
                 </div>
               ) : null}
 
-              <input {...getInputProps()} type="file" id="dropzone-file" className="hidden" />
+              {/* <input {...getInputProps()} type="file" id="dropzone-file" /> */}
             </label>
           </div>
         </div>
@@ -125,28 +127,3 @@ export const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
     </Dropzone>
   );
 };
-
-const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={(v) => {
-        if (!v) {
-          setIsOpen(v);
-        }
-      }}
-    >
-      <DialogTrigger onClick={() => setIsOpen(true)} asChild>
-        <Button>Upload PDF</Button>
-      </DialogTrigger>
-
-      <DialogContent>
-        <UploadDropzone isSubscribed={isSubscribed} />
-      </DialogContent>
-    </Dialog>
-  );
-};
-
-export default UploadButton;

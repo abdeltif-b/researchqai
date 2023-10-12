@@ -1,8 +1,8 @@
 "use client";
 
 import { trpc } from "@/app/_trpc/client";
-import UploadButton, { UploadDropzone } from "./UploadButton";
-import { FileIcon, FileUpIcon, Ghost, Loader2, MessageSquare, Plus, Trash } from "lucide-react";
+import { UploadDropzone } from "./UploadButton";
+import { FileIcon, Ghost, Loader2, Plus, Trash } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 import { format } from "date-fns";

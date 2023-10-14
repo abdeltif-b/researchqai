@@ -22,8 +22,8 @@ const Page = () => {
         router.push("/sign-in");
       }
     },
-    retry: true,
-    retryDelay: 500,
+    retry: 0,
+    // retryDelay: 1000,
   });
 
   return (
